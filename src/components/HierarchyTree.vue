@@ -77,7 +77,7 @@ const drawTree = () => {
     .selectAll('circle')
     .data(root.descendants())
     .join('circle')
-    .attr('cx', (d) => d.y)
+    .attr('cx', (d) => d.y+20)
     .attr('cy', (d) => d.x)
     .attr('r', 20)
     .attr('fill', (d) =>
@@ -97,10 +97,10 @@ const drawTree = () => {
     .selectAll('text')
     .data(root.descendants())
     .join('text')
-    .attr('x', (d) => d.y + 28)
+    .attr('x', (d) => d.y + 50)
     .attr('y', (d) => d.x + 5)
     .text((d) => d.data.name)
-    .attr('font-size', 14)
+    .attr('font-size', 18)
     .attr('fill', '#333');
 };
 
@@ -125,6 +125,7 @@ watch(selectedNode, () => drawTree()); //We use Vue’s watch() to redraw the tr
   height: 400px;
   background-color: #f8f8f8;
   border: 1px solid #ddd;
+  padding: 50px;
 }
 .sidebar {
   position: absolute;
